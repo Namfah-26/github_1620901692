@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title> <!--ชื่อหน้าเว็บไซต์-->
+</head>
+<body>
+    <center> <!--กำหนดให้ทำงานกลางหน้าเว็บ-->
+        <h1>Welcome to Ally Dee</h1> <!--หัวข้อขนาดข้อความใหญ่สุด-->
+        <h1><div id="name">Admin</div></h1>
+        <br> <!--เว้นบรรทัด-->
+        <button id="logout">logout</button> <!--สร้างปุ่มlogoutให้คลิกได้-->
+    </center> 
+</body>
+</html>
+
+<script> //การทำงานรูปแบบJS
+    checkLogin() 
+    function checkLogin() //ฟังก์ชันตรวจสอบการเข้าระบบ
+    {
+        let username = localStorage.getItem("username") //การเรียกใช้ username ของ Local Storage
+        if(!username){
+            window.location = "index.html" //ไปที่หน้าเว็บ Login 
+            // window.location คำสั่งเชื่อมโยงหน้าเว็บไซต์ต่างๆโดยระบุที่อยู่ของหน้าเว็บที่จะไป
+        }
+        else{
+            document.getElementById("name").innerHTML = username 
+            //document.getElementById("name"). ตรวจสอบหา ID ที่อยู๋ภายใน form ของ HTML
+            //innerHTML = username คำสั่งที่ใช้แทรก HTML Tag ลงในตำแหน่ง username
+        }
+    }
+    //ส่วนของการสร้างระบบlogout
+    document.getElementById("logout").onclick = function()
+    {
+        localStorage.clear() //เคลียข้อมูลทั้งหมดใน Local Storage ของโดเมน
+        window.location = "index.html" //ไปที่หน้าเว็บ Login
+    }
+</script>

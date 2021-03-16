@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- รูปแบบการเข้ารหัสอักขระ -->
+    <!-- แสดงผลหน้าเว็บให้รับรองในอุปกรณ์ต่างๆ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title> <!--ชื่อเว็บไซต์-->
+</head>
+<body>
+    <center> <!--กำหนดให้ทำงานกลางหน้าเว็บ-->
+        <h1>Login</h1> 
+        <form id="frm-login"> <!--แบบฟอร์มการlogin-->
+            <!--การสร้างคำอธิบายหรือตัวอย่างการใส่ข้อความในช่องข้อความ-->
+            <p><input required placeholder="Username" type="text" name="" id="username"></p>
+            <p><input required placeholder="Password" type="password" name="" id="password"></p>
+            
+            <p><button>Login</button></p> <!--สร้างปุ่มคลิก Login-->
+        </form>
+    </center>
+</body>
+</html>
+<script>    //เก็บข้อมูล Username และ Passwordสำหรับ login เข้าเว็บไซต์
+
+    let username = "namfah"
+    let password = "namfah"
+    document.getElementById("frm-login").onsubmit = function(e){
+        e.preventDefault() //ถูกใช้เพื่อไม่ให้ browser reload หรือ refresh
+        let user = document.getElementById("username").value
+        let pass = document.getElementById("password").value
+        if(user === username && pass === password){
+        localStorage.setItem("username",user) //การเก็บข้อมูล username ลงใน Local Storage
+        window.location = "home.html"
+}else{
+    alert("Invalid username or password!" )
+}
+}
+</script>
